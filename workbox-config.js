@@ -8,4 +8,8 @@ module.exports = {
 		/^fbclid$/
 	],
 	swDest: 'public/sw.js'
+
 };
+
+
+//find workbox build caching
