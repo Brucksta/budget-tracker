@@ -6,6 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "npm run workbox && node server.js",
+    "postinstall": "npm run workbox",
     "lite-server": "lite-server",
     "workbox": "workbox generateSW workbox-config.js"
   },
@@ -21,7 +22,9 @@
   "homepage": "https://github.com/coding-boot-camp/unit18hw#readme",
   "dependencies": {
     "compression": "^1.7.4",
+    "dexie": "^3.0.3",
     "express": "^4.17.1",
+    "idb": "^6.1.2",
     "lite-server": "^2.5.3",
     "mongoose": "^5.5.15",
     "morgan": "^1.9.1"
