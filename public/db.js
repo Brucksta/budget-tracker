@@ -1,26 +1,30 @@
 
-const db = new Dexie("transactions");
+const db = new Dexie("transaction_database");
 db.version(1).stores({
-    pending_transactions: 'name,value',
+  pendingTransaction: "name,value",
 });
 
-function saveRecord(transaction) {
-    db.pending_transactions.put(transaction)
-}
-
-async function getAllTransactions() {
-    const transactions = await db.pending_transactions.toArray();
-    if(transactions.length > 0) {
-        fetch("/api/transaction/bulk", {
-            method: "POST",
-            body: JSON.stringify(transactions),
-            headers: {
-              Accept: "application/json, text/plain, */*",
-              "Content-Type": "application/json"
-            }
-          }).then(() => db.pending_transactions.clear())
-    }}
+const saveRecord = (data) => {
+  db.pendingTransaction
+    .put({ name: data.name, value: data.value })
+    .then(function () {
+      console.log("Successfully saved", db);
+    })
+    .catch(function (error) {
+      alert("Ooops: " + error);
+    });
+};
 
 if (navigator.onLine) {
-    getAllTransactions()
+  db.pendingTransaction.toArray().then((data) => {
+    console.log(data);
+    fetch("/api/transaction/bulk", {
+      method: "POST",
+      body: JSON.stringify(data),
+      headers: {
+        Accept: "application/json, text/plain, */*",
+        "Content-Type": "application/json",
+      },
+    }).then(() => db.pendingTransaction.clear());
+  });
 }
