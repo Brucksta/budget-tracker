@@ -2,7 +2,7 @@
 const db = new Dexie("transactions");
 db.version(1).stores({
     pending_transactions: 'name,value',
-}):
+});
 
 function saveRecord(transaction) {
     db.pending_transactions.put(transaction)
