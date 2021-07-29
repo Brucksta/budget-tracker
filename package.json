@@ -1,15 +1,11 @@
 {
-  "name": "budget-tracker",
+  "name": "budget-app",
   "version": "1.0.0",
-  "description": "",
   "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "npm run workbox && node server.js",
+    "start": "node server.js",
     "postinstall": "npm run workbox",
-    "lite-server": "lite-server",
-    "postbuild": "npm run workbox",
-    "workbox": "./node_modules/.bin/workbox generateSW workbox-config.js"
+    "workbox": "workbox generateSW workbox-config.js"
   },
   "repository": {
     "type": "git",
@@ -26,11 +22,10 @@
     "dexie": "^3.0.3",
     "express": "^4.17.1",
     "idb": "^6.1.2",
-    "lite-server": "^2.5.3",
     "mongoose": "^5.5.15",
-    "morgan": "^1.9.1"
-  },
-  "devDependencies": {
+    "morgan": "^1.9.1",
     "workbox-cli": "^6.1.5"
-  }
+  },
+  "keywords": [],
+  "description": ""
 }
