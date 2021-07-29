@@ -8,7 +8,7 @@
     "start": "npm run workbox && node server.js",
     "postinstall": "npm run workbox",
     "lite-server": "lite-server",
-    "post-build": "npm run workbox",
+    "postbuild": "npm run workbox",
       "workbox": "./node_modules/.bin/workbox generateSW workbox-config.js"
   },
   "repository": {
