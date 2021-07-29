@@ -9,7 +9,7 @@
     "postinstall": "npm run workbox",
     "lite-server": "lite-server",
     "postbuild": "npm run workbox",
-      "workbox": "./node_modules/.bin/workbox generateSW workbox-config.js"
+    "workbox": "./node_modules/.bin/workbox generateSW workbox-config.js"
   },
   "repository": {
     "type": "git",
